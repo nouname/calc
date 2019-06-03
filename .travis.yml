@@ -1,0 +1,15 @@
+dist: xenial
+language: cpp
+os: linux
+addons:
+  apt:
+    packages:
+      - libqt4-dev
+      - qt5-default
+before_install:
+- pip install --user cpp-coveralls
+script:
+- export QT_QPA_PLATFORM=offscreen
+- qmake
+- make
+- "./tests/tests"
